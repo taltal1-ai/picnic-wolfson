@@ -194,8 +194,8 @@
   <div id="countdown" class="countdown">
     <div class="countdown-item"><div class="countdown-num">4</div><div class="countdown-label">ימים</div></div>
     <div class="countdown-item"><div class="countdown-num">20</div><div class="countdown-label">שעות</div></div>
-    <div class="countdown-item"><div class="countdown-num">34</div><div class="countdown-label">דקות</div></div>
-    <div class="countdown-item"><div class="countdown-num">44</div><div class="countdown-label">שניות</div></div>
+    <div class="countdown-item"><div class="countdown-num">06</div><div class="countdown-label">דקות</div></div>
+    <div class="countdown-item"><div class="countdown-num">48</div><div class="countdown-label">שניות</div></div>
   </div>
 </header>
 
@@ -587,6 +587,7 @@ if (currentUser) {
   document.getElementById('activeUser').classList.add('show');
   document.getElementById('nameInput').disabled = true;
   document.querySelector('.name-btn').disabled = true;
+  updateAdminPanel();
 }
 
 window.setName = function() {
