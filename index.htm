@@ -173,7 +173,6 @@
     font-weight: 700; margin-top: 1rem;
   }
 </style>
-<script src="index_files/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -194,8 +193,8 @@
   <div id="countdown" class="countdown">
     <div class="countdown-item"><div class="countdown-num">4</div><div class="countdown-label">ימים</div></div>
     <div class="countdown-item"><div class="countdown-num">20</div><div class="countdown-label">שעות</div></div>
-    <div class="countdown-item"><div class="countdown-num">06</div><div class="countdown-label">דקות</div></div>
-    <div class="countdown-item"><div class="countdown-num">48</div><div class="countdown-label">שניות</div></div>
+    <div class="countdown-item"><div class="countdown-num">03</div><div class="countdown-label">דקות</div></div>
+    <div class="countdown-item"><div class="countdown-num">14</div><div class="countdown-label">שניות</div></div>
   </div>
 </header>
 
@@ -1054,6 +1053,10 @@ window.closeAdminModal = function(e) {
 
 
 window.exportToExcel = function() {
+  if (typeof XLSX === 'undefined') {
+    showToast('הספריה עדיין נטענת, נסו שוב עוד שנייה');
+    return;
+  }
   const allItemsE = getAllItems();
   const notesText = document.getElementById('adminNotes') ? document.getElementById('adminNotes').value : '';
 
@@ -1119,6 +1122,7 @@ updateAdminPanel();
 renderItems();
 renderFreeItems();
 </script>
+<script src="index_files/xlsx.full.min.js"></script>
 
 
 </body></html>
