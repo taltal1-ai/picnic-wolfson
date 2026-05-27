@@ -134,8 +134,7 @@
   .admin-tool-btn:hover { background: var(--green-deep); }
   .admin-tool-btn.secondary { background: transparent; color: var(--green-deep); border: 1.5px solid var(--green-mid); }
   .admin-tool-btn.secondary:hover { background: var(--green-mid); color: #fff; }
-  .admin-notes-area { width: 100%; min-height: 80px; border: 2px solid var(--sand); border-radius: 10px; padding: 0.7rem 1rem; font-family: Arial, sans-serif; font-size: 0.92rem; direction: rtl; resize: vertical; background: var(--cream); }
-  .admin-notes-area:focus { outline: none; border-color: var(--green-mid); background: #fff; }
+
   .col-toggle-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
   .col-toggle { display: flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; cursor: pointer; background: rgba(74,140,63,0.08); border: 1px solid var(--green-light); border-radius: 2rem; padding: 0.25rem 0.7rem; user-select: none; }
   .col-toggle input { cursor: pointer; }
@@ -173,7 +172,7 @@
     font-weight: 700; margin-top: 1rem;
   }
 </style>
-<script src="index_files/xlsx.full.min.js"></script></head>
+</head>
 <body>
 
 <div class="loading-overlay" id="loadingOverlay" style="display: none;">
@@ -193,8 +192,8 @@
   <div id="countdown" class="countdown">
     <div class="countdown-item"><div class="countdown-num">2</div><div class="countdown-label">ימים</div></div>
     <div class="countdown-item"><div class="countdown-num">11</div><div class="countdown-label">שעות</div></div>
-    <div class="countdown-item"><div class="countdown-num">48</div><div class="countdown-label">דקות</div></div>
-    <div class="countdown-item"><div class="countdown-num">42</div><div class="countdown-label">שניות</div></div>
+    <div class="countdown-item"><div class="countdown-num">16</div><div class="countdown-label">דקות</div></div>
+    <div class="countdown-item"><div class="countdown-num">43</div><div class="countdown-label">שניות</div></div>
   </div>
 </header>
 
@@ -219,11 +218,11 @@
   <div class="name-section">
     <label>🙋 מי אתם?</label>
     <div class="name-row">
-      <input class="name-input" id="nameInput" type="text" placeholder="הכניסו את שמכם..." disabled="disabled">
-      <button class="name-btn" onclick="setName()" disabled="disabled">אישור</button>
+      <input class="name-input" id="nameInput" type="text" placeholder="הכניסו את שמכם...">
+      <button class="name-btn" onclick="setName()">אישור</button>
     </div>
-    <div class="active-user show" id="activeUser">
-      <span id="activeUserName">👋 שלום, מנהל!</span>
+    <div class="active-user" id="activeUser">
+      <span id="activeUserName"></span>
       <span class="change-name" onclick="changeName()">שינוי שם</span>
       <span class="change-name" onclick="logout()" style="color:var(--red-soft)">התנתקות</span>
     </div>
@@ -235,9 +234,10 @@
     <div class="item-top">
       <span class="item-name">שולחנות</span>
       <span class="slots-badge">3/4</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('tables')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" onclick="signup('tables')">הצטרף</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">ניר זמר</span><span class="volunteer-tag ">הראל</span><span class="volunteer-tag ">אסף גינזבורג</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
   </div>
     </div><div class="category">
@@ -246,9 +246,10 @@
     <div class="item-top">
       <span class="item-name">שישיות מים מינרליים</span>
       <span class="slots-badge">4/4</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('water')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">רונן</span><span class="volunteer-tag ">קרן</span><span class="volunteer-tag ">טל ויזל</span><span class="volunteer-tag ">שירה</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
@@ -257,25 +258,28 @@
     <div class="item-top">
       <span class="item-name">כוסות (3 שרוולים כל אחד)</span>
       <span class="slots-badge">4/4</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('cups')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">מירב זמיר</span><span class="volunteer-tag ">רונה</span><span class="volunteer-tag ">רחלי</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div><div class="item-card full" id="item-card-plates">
     <div class="item-top">
       <span class="item-name">צלחות גדולות (חבילה)</span>
       <span class="slots-badge">4/4</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('plates')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">אמיר</span><span class="volunteer-tag ">אמיר בריף</span><span class="volunteer-tag ">איתן</span><span class="volunteer-tag ">רותם אנגלמאיר</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div><div class="item-card full" id="item-card-forks">
     <div class="item-top">
       <span class="item-name">מזלגות (שקית)</span>
       <span class="slots-badge">4/4</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('forks')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">אמיר בריף</span><span class="volunteer-tag ">נאוה</span><span class="volunteer-tag ">נטלי</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
@@ -284,25 +288,28 @@
     <div class="item-top">
       <span class="item-name">מפות</span>
       <span class="slots-badge">3/3</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('blankets')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">ורד</span><span class="volunteer-tag ">דקל נעים</span><span class="volunteer-tag ">דלית</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div><div class="item-card full" id="item-card-papertowels">
     <div class="item-top">
       <span class="item-name">מגבות נייר (2 בודדות)</span>
       <span class="slots-badge">3/3</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('papertowels')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">אלכס ס.</span><span class="volunteer-tag ">נאוה</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div><div class="item-card full" id="item-card-wipes">
     <div class="item-top">
       <span class="item-name">מגבונים לחים (2 חבילות)</span>
       <span class="slots-badge">3/3</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('wipes')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">אלכס ס.</span><span class="volunteer-tag ">מעיין אביבית</span><span class="volunteer-tag ">איתי בן שושן</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
@@ -311,9 +318,10 @@
     <div class="item-top">
       <span class="item-name">פותחן בקבוקים</span>
       <span class="slots-badge">3/3</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('opener')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">אלכס ס.</span><span class="volunteer-tag ">עידן</span><span class="volunteer-tag ">ורד</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
@@ -322,9 +330,10 @@
     <div class="item-top">
       <span class="item-name">שקיות אשפה גדולות</span>
       <span class="slots-badge">5/5</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('trash')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">נאוה</span><span class="volunteer-tag ">מעיין אביבית</span><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">דקל נעים</span><span class="volunteer-tag ">אייל</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
@@ -333,44 +342,28 @@
     <div class="item-top">
       <span class="item-name">רמקול / בידורית</span>
       <span class="slots-badge">1/1</span>
-      <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('music')">✏️ עריכה</button></span>
+      <span style="display:flex;gap:0.4rem"><button class="signup-btn" disabled="disabled">מלא ✓</button></span>
     </div>
     <div class="volunteers"><span class="volunteer-tag ">שירה</span></div>
+    
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div></div>
 
 
   <!-- Admin panel - visible only to מנהל -->
-  <div class="admin-panel" id="adminPanel" style="display: block;">
+  <div class="admin-panel" id="adminPanel" style="display:none">
     <div class="category-title">🔧 ממשק מנהל</div>
     <div class="admin-toolbar">
       <button class="admin-tool-btn" onclick="openAddItemModal()">➕ הוסף פריט</button>
       <button class="admin-tool-btn secondary" onclick="toggleColSettings()">📊 עמודות דוח</button>
       <button class="admin-tool-btn secondary" onclick="exportToExcel()">⬇️ ייצוא לאקסל</button>
     </div>
-    <div id="colSettings" style="display: block; margin-bottom: 0.8rem;">
+    <div id="colSettings" style="display:none;margin-bottom:0.8rem">
       <div style="font-size:0.82rem;font-weight:700;color:var(--green-deep);margin-bottom:0.4rem">בחר עמודות להצגה בדוח:</div>
-      <div class="col-toggle-row" id="colToggles"><label class="col-toggle active">
-      <input type="checkbox" checked="checked" onchange="toggleCol('volunteers', this.checked)">
-      מתנדבים
-    </label><label class="col-toggle active">
-      <input type="checkbox" checked="checked" onchange="toggleCol('registered', this.checked)">
-      נרשמו
-    </label><label class="col-toggle active">
-      <input type="checkbox" checked="checked" onchange="toggleCol('needed', this.checked)">
-      צריך
-    </label><label class="col-toggle active">
-      <input type="checkbox" checked="checked" onchange="toggleCol('status', this.checked)">
-      מצב
-    </label><label class="col-toggle active">
-      <input type="checkbox" checked="checked" onchange="toggleCol('notes', this.checked)">
-      הערות
-    </label></div>
+      <div class="col-toggle-row" id="colToggles"></div>
     </div>
-    <div style="font-size:0.82rem;font-weight:700;color:var(--green-deep);margin-bottom:0.4rem">📝 הערות מנהל (פנימי):</div>
-    <textarea class="admin-notes-area" id="adminNotes" placeholder="הערות שרק מנהל רואה..."></textarea>
-    <button class="admin-tool-btn" style="margin-top:0.5rem" onclick="saveAdminNotes()">💾 שמור הערות</button>
+
   </div>
 
   <div class="free-section">
@@ -379,124 +372,90 @@
       <input class="free-input" id="freeInput" type="text" placeholder="מה אתם מביאים? (למשל: עוגת שוקולד)">
       <button class="free-add-btn" onclick="addFreeItem()">+ הוסף</button>
     </div>
-    <div id="freeItemsList"><div class="free-item" id="free-item-1779661692706">
+    <div id="freeItemsList"><div class="free-item" id="free-item-1779661692706" style="flex-wrap:wrap">
       <span class="free-item-text">אתר לניהול מתנדבים</span>
       <span class="free-item-who">👤 טל ויזל</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779661692706', 'אתר לניהול מתנדבים', 'טל ויזל', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779661692706')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779686457716">
+    </div><div class="free-item" id="free-item-1779686457716" style="flex-wrap:wrap">
       <span class="free-item-text">סלט ביצים ובלי תפוחי אדמה</span>
       <span class="free-item-who">👤 איילת</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779686457716', 'סלט ביצים ובלי תפוחי אדמה', 'איילת', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779686457716')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779686659068">
+    </div><div class="free-item" id="free-item-1779686659068" style="flex-wrap:wrap">
       <span class="free-item-text">בירות</span>
       <span class="free-item-who">👤 יובל זהרהרי</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779686659068', 'בירות', 'יובל זהרהרי', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779686659068')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779687173273">
+    </div><div class="free-item" id="free-item-1779687173273" style="flex-wrap:wrap">
       <span class="free-item-text">סלט פירות</span>
       <span class="free-item-who">👤 ניר זמר</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779687173273', 'סלט פירות', 'ניר זמר', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779687173273')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779687344239">
+    </div><div class="free-item" id="free-item-1779687344239" style="flex-wrap:wrap">
       <span class="free-item-text">פרכיות ובייגלה</span>
       <span class="free-item-who">👤 ורד</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779687344239', 'פרכיות ובייגלה', 'ורד', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779687344239')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779689045419">
+    </div><div class="free-item" id="free-item-1779689045419" style="flex-wrap:wrap">
       <span class="free-item-text">לחם פרוס</span>
       <span class="free-item-who">👤 מעיין אביבית</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779689045419', 'לחם פרוס', 'מעיין אביבית', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779689045419')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779689055405">
+    </div><div class="free-item" id="free-item-1779689055405" style="flex-wrap:wrap">
       <span class="free-item-text">טחינה</span>
       <span class="free-item-who">👤 מעיין אביבית</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779689055405', 'טחינה', 'מעיין אביבית', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779689055405')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779689132442">
+    </div><div class="free-item" id="free-item-1779689132442" style="flex-wrap:wrap">
       <span class="free-item-text">מחצלת 140×150</span>
       <span class="free-item-who">👤 מעיין אביבית</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779689132442', 'מחצלת 140×150', 'מעיין אביבית', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779689132442')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779690037212">
+    </div><div class="free-item" id="free-item-1779690037212" style="flex-wrap:wrap">
       <span class="free-item-text">כוסות</span>
       <span class="free-item-who">👤 לירון</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779690037212', 'כוסות', 'לירון', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779690037212')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779690567381">
+    </div><div class="free-item" id="free-item-1779690567381" style="flex-wrap:wrap">
       <span class="free-item-text">יין + שמפנייה - שלי</span>
       <span class="free-item-who">👤 שלי</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779690567381', 'יין + שמפנייה - שלי', 'שלי', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779690567381')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779799161715">
+    </div><div class="free-item" id="free-item-1779799161715" style="flex-wrap:wrap">
       <span class="free-item-text">תפוחים , שתיה קלה , בירות</span>
       <span class="free-item-who">👤 אמיר בריף</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779799161715', 'תפוחים , שתיה קלה , בירות', 'אמיר בריף', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779799161715')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779799514339">
+    </div><div class="free-item" id="free-item-1779799514339" style="flex-wrap:wrap">
       <span class="free-item-text">יין אדום ומחצלת</span>
       <span class="free-item-who">👤 טלי</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779799514339', 'יין אדום ומחצלת', 'טלי', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779799514339')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779802324556">
+    </div><div class="free-item" id="free-item-1779802324556" style="flex-wrap:wrap">
       <span class="free-item-text">שמיכה גדולה לישיבה</span>
       <span class="free-item-who">👤 איתי בן שושן</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779802324556', 'שמיכה גדולה לישיבה', 'איתי בן שושן', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779802324556')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779803162478">
+    </div><div class="free-item" id="free-item-1779803162478" style="flex-wrap:wrap">
       <span class="free-item-text">זעיתים + מלפפונים חמוצים</span>
       <span class="free-item-who">👤 רותם אנגלמאיר</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779803162478', 'זעיתים + מלפפונים חמוצים', 'רותם אנגלמאיר', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779803162478')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779803216531">
+    </div><div class="free-item" id="free-item-1779803216531" style="flex-wrap:wrap">
       <span class="free-item-text">צלחות גדולות חד"פ</span>
       <span class="free-item-who">👤 רותם אנגלמאיר</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779803216531', 'צלחות גדולות חד" פ',="" 'רותם="" אנגלמאיר',="" true)"="" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779803216531')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779804199976">
+    </div><div class="free-item" id="free-item-1779804199976" style="flex-wrap:wrap">
       <span class="free-item-text">שישית בירות קורונה</span>
       <span class="free-item-who">👤 אסף גינזבורג</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779804199976', 'שישית בירות קורונה', 'אסף גינזבורג', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779804199976')">✕</button>
       
-    </div><div class="free-item" id="free-item-1779805476698">
+    </div><div class="free-item" id="free-item-1779805476698" style="flex-wrap:wrap">
       <span class="free-item-text">קינוח</span>
       <span class="free-item-who">👤 שירה</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779805476698', 'קינוח', 'שירה', true)" title="עריכה">✏️</button>
-        <button class="free-delete-btn" onclick="deleteFreeItem('1779805476698')">✕</button>
       
     </div></div>
   </div>
@@ -505,14 +464,14 @@
     <div class="category-title">📊 דוח סטטוס</div>
     <div style="overflow-x:auto">
       <table class="report-table">
-        <thead><tr><th>פריט</th><th>מתנדבים</th><th class="col-registered">נרשמו</th><th>צריך</th><th>מצב</th><th>הערות</th></tr></thead>
-        <tbody id="reportBody"><tr class="row-missing"><td>שולחנות</td><td>ניר זמר, הראל, אסף גינזבורג</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td><td></td></tr><tr class="row-full"><td>שישיות מים מינרליים</td><td>רונן, קרן, טל ויזל, שירה</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>כוסות (3 שרוולים כל אחד)</td><td>חן, מירב זמיר, רונה, רחלי</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>צלחות גדולות (חבילה)</td><td>אמיר, אמיר בריף, איתן, רותם אנגלמאיר</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מזלגות (שקית)</td><td>חן, אמיר בריף, נאוה, נטלי</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מפות</td><td>ורד, דקל נעים, דלית</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מגבות נייר (2 בודדות)</td><td>חן, אלכס ס., נאוה</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מגבונים לחים (2 חבילות)</td><td>אלכס ס., מעיין אביבית, איתי בן שושן</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>פותחן בקבוקים</td><td>אלכס ס., עידן, ורד</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>שקיות אשפה גדולות</td><td>נאוה, מעיין אביבית, חן, דקל נעים, אייל</td><td class="col-registered" style="text-align:center">5</td><td style="text-align:center">5</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>רמקול / בידורית</td><td>שירה</td><td class="col-registered" style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr><td colspan="5" style="background:#fff8e1;font-weight:700;padding:0.6rem 0.7rem;border-top:2px solid var(--sand)">✨ הוספות חופשיות</td></tr><tr><td>אתר לניהול מתנדבים</td><td>טל ויזל</td><td colspan="3"></td></tr><tr><td>סלט ביצים ובלי תפוחי אדמה</td><td>איילת</td><td colspan="3"></td></tr><tr><td>בירות</td><td>יובל זהרהרי</td><td colspan="3"></td></tr><tr><td>סלט פירות</td><td>ניר זמר</td><td colspan="3"></td></tr><tr><td>פרכיות ובייגלה</td><td>ורד</td><td colspan="3"></td></tr><tr><td>לחם פרוס</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>טחינה</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>מחצלת 140×150</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>כוסות</td><td>לירון</td><td colspan="3"></td></tr><tr><td>יין + שמפנייה - שלי</td><td>שלי</td><td colspan="3"></td></tr><tr><td>תפוחים , שתיה קלה , בירות</td><td>אמיר בריף</td><td colspan="3"></td></tr><tr><td>יין אדום ומחצלת</td><td>טלי</td><td colspan="3"></td></tr><tr><td>שמיכה גדולה לישיבה</td><td>איתי בן שושן</td><td colspan="3"></td></tr><tr><td>זעיתים + מלפפונים חמוצים</td><td>רותם אנגלמאיר</td><td colspan="3"></td></tr><tr><td>צלחות גדולות חד"פ</td><td>רותם אנגלמאיר</td><td colspan="3"></td></tr><tr><td>שישית בירות קורונה</td><td>אסף גינזבורג</td><td colspan="3"></td></tr><tr><td>קינוח</td><td>שירה</td><td colspan="3"></td></tr></tbody>
+        <thead><tr><th>פריט</th><th>מתנדבים</th><th class="col-registered">נרשמו</th><th>צריך</th><th>מצב</th></tr></thead>
+        <tbody id="reportBody"><tr class="row-missing"><td>שולחנות</td><td>ניר זמר, הראל, אסף גינזבורג</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-full"><td>שישיות מים מינרליים</td><td>רונן, קרן, טל ויזל, שירה</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>כוסות (3 שרוולים כל אחד)</td><td>חן, מירב זמיר, רונה, רחלי</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>צלחות גדולות (חבילה)</td><td>אמיר, אמיר בריף, איתן, רותם אנגלמאיר</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>מזלגות (שקית)</td><td>חן, אמיר בריף, נאוה, נטלי</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>מפות</td><td>ורד, דקל נעים, דלית</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>מגבות נייר (2 בודדות)</td><td>חן, אלכס ס., נאוה</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>מגבונים לחים (2 חבילות)</td><td>אלכס ס., מעיין אביבית, איתי בן שושן</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>פותחן בקבוקים</td><td>אלכס ס., עידן, ורד</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>שקיות אשפה גדולות</td><td>נאוה, מעיין אביבית, חן, דקל נעים, אייל</td><td class="col-registered" style="text-align:center">5</td><td style="text-align:center">5</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>רמקול / בידורית</td><td>שירה</td><td class="col-registered" style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr><td colspan="5" style="background:#fff8e1;font-weight:700;padding:0.6rem 0.7rem;border-top:2px solid var(--sand)">✨ הוספות חופשיות</td></tr><tr><td>אתר לניהול מתנדבים</td><td>טל ויזל</td><td colspan="3"></td></tr><tr><td>סלט ביצים ובלי תפוחי אדמה</td><td>איילת</td><td colspan="3"></td></tr><tr><td>בירות</td><td>יובל זהרהרי</td><td colspan="3"></td></tr><tr><td>סלט פירות</td><td>ניר זמר</td><td colspan="3"></td></tr><tr><td>פרכיות ובייגלה</td><td>ורד</td><td colspan="3"></td></tr><tr><td>לחם פרוס</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>טחינה</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>מחצלת 140×150</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>כוסות</td><td>לירון</td><td colspan="3"></td></tr><tr><td>יין + שמפנייה - שלי</td><td>שלי</td><td colspan="3"></td></tr><tr><td>תפוחים , שתיה קלה , בירות</td><td>אמיר בריף</td><td colspan="3"></td></tr><tr><td>יין אדום ומחצלת</td><td>טלי</td><td colspan="3"></td></tr><tr><td>שמיכה גדולה לישיבה</td><td>איתי בן שושן</td><td colspan="3"></td></tr><tr><td>זעיתים + מלפפונים חמוצים</td><td>רותם אנגלמאיר</td><td colspan="3"></td></tr><tr><td>צלחות גדולות חד"פ</td><td>רותם אנגלמאיר</td><td colspan="3"></td></tr><tr><td>שישית בירות קורונה</td><td>אסף גינזבורג</td><td colspan="3"></td></tr><tr><td>קינוח</td><td>שירה</td><td colspan="3"></td></tr></tbody>
       </table>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast">קובץ אקסל הורד! 📊</div>
+<div class="toast" id="toast"></div>
 
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal">
@@ -551,6 +510,10 @@
     <div class="admin-name-row" style="margin-bottom:1rem">
       <span class="admin-name-label">כמות נדרשת:</span>
       <input class="admin-name-input" type="number" min="1" max="20" id="newItemSlots" value="1" style="width:80px;flex:none;text-align:center">
+    </div>
+    <div class="admin-name-row" style="margin-bottom:1rem">
+      <span class="admin-name-label">📝 הערה:</span>
+      <input class="admin-name-input" id="newItemNote" placeholder="הערה לפריט (אופציונלי)...">
     </div>
     <button class="copy-btn" style="background:var(--green-mid)" onclick="saveNewItem()">✅ הוסף לרשימה</button>
   </div>
@@ -601,6 +564,8 @@ const freeRef = doc(db, 'picnic', 'freeItems');
 const slotsRef = doc(db, 'picnic', 'slots');
 const notesRef = doc(db, 'picnic', 'adminNotes');
 const extraItemsRef = doc(db, 'picnic', 'extraItems');
+const itemNotesRef = doc(db, 'picnic', 'itemNotes');
+let itemNotes = {}; // {itemId: noteText}
 let slotsState = {};
 let extraItems = []; // [{id,name,cat,slots}]
 let adminCols = JSON.parse(localStorage.getItem('adminCols') || 'null');
@@ -654,15 +619,15 @@ async function initDB() {
       ITEMS.forEach(item => { defaultSlots[item.id] = item.slots; });
       await setDoc(slotsRef, defaultSlots);
     }
-    const notesSnap = await getDoc(notesRef);
-    if (notesSnap.exists() && currentUser === 'מנהל') {
-      document.getElementById('adminNotes').value = notesSnap.data().text || '';
-    }
+
     const extraSnap = await getDoc(extraItemsRef);
     if (!extraSnap.exists()) await setDoc(extraItemsRef, { items: [] });
+    const itemNotesSnap = await getDoc(itemNotesRef);
+    if (!itemNotesSnap.exists()) await setDoc(itemNotesRef, {});
     document.getElementById('loadingOverlay').style.display = 'none';
     document.getElementById('statusDot').className = 'status-dot connected';
     document.getElementById('statusText').textContent = 'מחובר – מתעדכן בזמן אמת 🟢';
+    updateAdminPanel();
   } catch(e) {
     document.getElementById('loadingOverlay').style.display = 'none';
     document.getElementById('statusDot').className = 'status-dot error';
@@ -674,6 +639,7 @@ onSnapshot(docRef, (snap) => { if (snap.exists()) { state = snap.data(); renderI
 onSnapshot(freeRef, (snap) => { if (snap.exists()) { freeItems = snap.data().items || []; renderFreeItems(); } });
 onSnapshot(slotsRef, (snap) => { if (snap.exists()) { slotsState = snap.data(); renderItems(); } });
 onSnapshot(extraItemsRef, (snap) => { if (snap.exists()) { extraItems = snap.data().items || []; renderItems(); } });
+onSnapshot(itemNotesRef, (snap) => { if (snap.exists()) { itemNotes = snap.data(); renderItems(); } });
 
 if (currentUser) {
   document.getElementById('activeUserName').textContent = '👋 שלום, ' + currentUser + '!';
@@ -752,7 +718,7 @@ window.addFreeItem = async function() {
   if (currentUser === 'מנהל') { showToast('מנהל לא יכול להוסיף פריטים'); return; }
   const val = document.getElementById('freeInput').value.trim();
   if (!val) { showToast('כתבו מה אתם רוצים להביא'); return; }
-  const newItem = { id: Date.now().toString(), text: val, who: currentUser, ts: Date.now() };
+  const newItem = { id: Date.now().toString(), text: val, who: currentUser, ts: Date.now(), note: '' };
   await setDoc(freeRef, { items: [...freeItems, newItem] });
   document.getElementById('freeInput').value = '';
   showToast('נוסף! 🎉');
@@ -797,6 +763,8 @@ function renderItem(item) {
   const pct = Math.round((filled / effectiveSlots) * 100);
   const tagsHtml = volunteers.length > 0
     ? `<div class="volunteers">${volunteers.map(n => `<span class="volunteer-tag ${n === currentUser ? 'is-me' : ''}">${n}</span>`).join('')}</div>` : '';
+  const noteText = itemNotes[item.id] || '';
+  const noteHtml = noteText ? `<div style="font-size:0.78rem;color:var(--brown);margin-top:0.4rem">📝 ${noteText}</div>` : '';
   const isAdmin = currentUser === 'מנהל';
   let btnHtml = isAdmin
     ? ''
@@ -816,6 +784,7 @@ function renderItem(item) {
       <span style="display:flex;gap:0.4rem">${btnHtml}${adminBtn}</span>
     </div>
     ${tagsHtml}
+    ${noteHtml}
     <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
   </div>`;
 }
@@ -832,13 +801,15 @@ function renderFreeItems() {
     const isMe = item.who === currentUser;
     const withinMinute = isMe && item.ts && item.ts > 0 && (Date.now() - item.ts) < 60000;
     const canEdit = withinMinute || isAdminUser;
-    return `<div class="free-item" id="free-item-${item.id}">
+    const noteDisplay = item.note ? `<div style="font-size:0.75rem;color:var(--brown);margin-top:0.2rem;width:100%">📝 ${item.note}</div>` : '';
+    return `<div class="free-item" id="free-item-${item.id}" style="flex-wrap:wrap">
       <span class="free-item-text">${item.text}</span>
       <span class="free-item-who">👤 ${item.who}</span>
       ${canEdit ? `
-        <button class="free-edit-btn" onclick="startEditFreeItem('${item.id}', '${item.text.replace(/'/g, "\\'")}', '${item.who.replace(/'/g, "\\'")}', ${isAdminUser})" title="עריכה">✏️</button>
+        <button class="free-edit-btn" onclick="startEditFreeItem('${item.id}', '${item.text.replace(/'/g, "\\'")}', '${item.who.replace(/'/g, "\\'")}', ${isAdminUser}, '${(item.note||'').replace(/'/g, "\\'")}')" title="עריכה">✏️</button>
         <button class="free-delete-btn" onclick="deleteFreeItem('${item.id}')">✕</button>
       ` : ''}
+      ${noteDisplay}
     </div>`;
   }).join('');
 }
@@ -875,18 +846,24 @@ window.saveEditName = async function(id) {
   showToast('השם עודכן ל־' + newName + ' ✅');
 };
 
-window.startEditFreeItem = function(id, currentText, currentWho, isAdmin) {
+window.startEditFreeItem = function(id, currentText, currentWho, isAdmin, currentNote) {
   const div = document.getElementById('free-item-' + id);
   if (!div) return;
   const isAdminBool = isAdmin === true || isAdmin === 'true';
   const whoField = isAdminBool
     ? `<input class="free-input" style="width:110px;flex:none" value="${currentWho}" id="edit-who-${id}" placeholder="שם מתנדב" />`
     : '';
+  const noteField = isAdminBool
+    ? `<input class="free-input" style="width:100%;margin-top:0.4rem" value="${currentNote || ''}" id="edit-note-${id}" placeholder="📝 הערה (אופציונלי)..." />`
+    : '';
   div.innerHTML = `
-    ${whoField}
-    <input class="free-input" style="flex:1" value="${currentText}" id="edit-input-${id}" placeholder="מה מביאים?" />
-    <button class="free-add-btn" onclick="saveEditFreeItem('${id}', ${isAdminBool})">שמור</button>
-    <button class="free-delete-btn" style="margin-right:0.3rem" onclick="renderFreeItems()">ביטול</button>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;width:100%">
+      ${whoField}
+      <input class="free-input" style="flex:1;min-width:120px" value="${currentText}" id="edit-input-${id}" placeholder="מה מביאים?" />
+      <button class="free-add-btn" onclick="saveEditFreeItem('${id}', ${isAdminBool})">שמור</button>
+      <button class="free-delete-btn" style="margin-right:0.3rem" onclick="renderFreeItems()">ביטול</button>
+    </div>
+    ${noteField}
   `;
   document.getElementById('edit-input-' + id).focus();
 };
@@ -902,9 +879,14 @@ window.saveEditFreeItem = async function(id, isAdmin) {
     newWho = whoInput ? whoInput.value.trim() : null;
     if (!newWho) { showToast('אנא הכניסו שם מתנדב'); return; }
   }
+  let newNote = null;
+  if (isAdminBool2) {
+    const noteInp = document.getElementById('edit-note-' + id);
+    newNote = noteInp ? noteInp.value.trim() : null;
+  }
   const updated = freeItems.map(i => {
     if (i.id !== id) return i;
-    return { ...i, text: newText, ...(isAdminBool2 && newWho ? { who: newWho } : {}) };
+    return { ...i, text: newText, ...(isAdminBool2 && newWho ? { who: newWho } : {}), ...(newNote !== null ? { note: newNote } : {}) };
   });
   await setDoc(freeRef, { items: updated });
   showToast('עודכן! ✅');
@@ -974,7 +956,7 @@ function renderReport() {
       : '<span class="badge-missing">⚠️ חסרים</span>';
     const colMap = {
       name: item.name, volunteers: names,
-      registered: v.length, needed: effSlots, status: badge, notes: ''
+      registered: v.length, needed: effSlots, status: badge, notes: itemNotes[item.id] || ''
     };
     const tds = ALL_COLS.filter(c => activeCols.includes(c.key) || c.always)
       .map(c => `<td${c.key === 'registered' ? ' class="col-registered"' : ''}${c.key === 'status' || c.key === 'registered' || c.key === 'needed' ? ' style="text-align:center"' : ''}>${colMap[c.key]}</td>`).join('');
@@ -997,12 +979,7 @@ function updateAdminPanel() {
   if (currentUser === 'מנהל') renderColToggles();
 }
 
-// ── Notes ──
-window.saveAdminNotes = async function() {
-  const text = document.getElementById('adminNotes').value;
-  await setDoc(notesRef, { text });
-  showToast('הערות נשמרו ✅');
-};
+
 
 // ── Column toggles ──
 window.toggleColSettings = function() {
@@ -1034,6 +1011,7 @@ window.toggleCol = function(key, checked) {
 window.openAddItemModal = function() {
   document.getElementById('newItemName').value = '';
   document.getElementById('newItemSlots').value = '1';
+  if (document.getElementById('newItemNote')) document.getElementById('newItemNote').value = '';
   // Populate categories
   const allCats = [...new Set(getAllItems().map(i => i.cat))];
   const select = document.getElementById('newItemCatSelect');
@@ -1065,10 +1043,13 @@ window.saveNewItem = async function() {
     : selectVal;
   const slots = parseInt(document.getElementById('newItemSlots').value) || 1;
   if (!name) { showToast('אנא הכניסו שם פריט'); return; }
+  const noteVal = document.getElementById('newItemNote') ? document.getElementById('newItemNote').value.trim() : '';
   const newItem = { id: 'extra_' + Date.now(), name, cat, slots };
   await setDoc(extraItemsRef, { items: [...extraItems, newItem] });
   // init state for new item
   if (!state[newItem.id]) await setDoc(docRef, { ...state, [newItem.id]: [] });
+  // save note if provided
+  if (noteVal) await setDoc(itemNotesRef, { ...itemNotes, [newItem.id]: noteVal });
   closeAddItemModal();
   showToast('פריט נוסף! ✅');
 };
@@ -1091,6 +1072,7 @@ window.openAdminEdit = function(id) {
   const volunteers = rawVols.map(e => typeof e === 'object' ? e.name : e);
   const currentSlots = (slotsState && slotsState[id] != null) ? slotsState[id] : item.slots;
   document.getElementById('adminModalTitle').textContent = '✏️ עריכת שמות – ' + item.name;
+  const currentNote = itemNotes[id] || '';
   
   // Build input rows for each existing volunteer + empty slots
   let nameRowsHtml = '';
@@ -1105,7 +1087,11 @@ window.openAdminEdit = function(id) {
     <span class="admin-name-label" style="font-weight:700;color:var(--green-deep)">כמות נדרשת:</span>
     <input class="admin-name-input" type="number" min="1" max="20" id="admin-slots-${id}" value="${currentSlots}" style="width:80px;flex:none;text-align:center" oninput="refreshAdminNameFields('${id}')" />
   </div>`;
-  document.getElementById('adminModalBody').innerHTML = slotsRow + `<div id="admin-names-${id}">${nameRowsHtml}</div>`;
+  const noteRow = `<div class="admin-name-row" style="margin-top:0.8rem;padding-top:0.8rem;border-top:2px solid var(--sand)">
+    <span class="admin-name-label">📝 הערה:</span>
+    <input class="admin-name-input" id="admin-note-${id}" value="${currentNote}" placeholder="הערה לפריט זה..." />
+  </div>`;
+  document.getElementById('adminModalBody').innerHTML = slotsRow + `<div id="admin-names-${id}">${nameRowsHtml}</div>` + noteRow;
   document.getElementById('adminModalOverlay').classList.add('open');
 };
 
@@ -1155,6 +1141,11 @@ window.saveAdminEdit = async function() {
     await setDoc(slotsRef, { ...slotsState, [adminCurrentId]: finalSlots });
   }
   await setDoc(docRef, { ...state, [adminCurrentId]: newVolunteers });
+  // Save item note
+  const noteInput = document.getElementById('admin-note-' + adminCurrentId);
+  if (noteInput) {
+    await setDoc(itemNotesRef, { ...itemNotes, [adminCurrentId]: noteInput.value.trim() });
+  }
   closeAdminModal();
   showToast('עודכן בהצלחה ✅');
 };
@@ -1177,10 +1168,10 @@ window.exportToExcel = function() {
     return;
   }
   const allItemsE = getAllItems();
-  const notesText = document.getElementById('adminNotes') ? document.getElementById('adminNotes').value : '';
+  const notesText = '';
 
   // Header row
-  const headers = ['פריט', 'קטגוריה', 'מתנדבים', 'נרשמו', 'צריך', 'מצב'];
+  const headers = ['פריט', 'קטגוריה', 'מתנדבים', 'נרשמו', 'צריך', 'מצב', 'הערות'];
   
   // Data rows
   const rows = allItemsE.map(item => {
@@ -1194,17 +1185,18 @@ window.exportToExcel = function() {
       v.join(', ') || '—',
       v.length,
       effSlots,
-      isFull ? 'מלא ✅' : 'חסרים ⚠️'
+      isFull ? 'מלא ✅' : 'חסרים ⚠️',
+      itemNotes[item.id] || ''
     ];
   });
 
   // Free items section
   const freeRows = freeItems.map(item => [
-    item.text, '✨ הוספות חופשיות', item.who, '', '', ''
+    item.text, '✨ הוספות חופשיות', item.who, '', '', '', item.note || ''
   ]);
 
   // Notes row
-  const notesRow = notesText ? [[''], ['📝 הערות מנהל:'], [notesText]] : [];
+  const notesRow = [];
 
   // Build worksheet data
   const wsData = [
@@ -1224,6 +1216,12 @@ window.exportToExcel = function() {
     { wch: 28 }, { wch: 16 }, { wch: 30 }, { wch: 10 }, { wch: 10 }, { wch: 12 }
   ];
 
+  // Set RTL for the worksheet
+  ws['!views'] = [{ rightToLeft: true }];
+  // Set RTL on workbook level too
+  if (!wb.Workbook) wb.Workbook = {};
+  if (!wb.Workbook.Views) wb.Workbook.Views = [];
+  wb.Workbook.Views[0] = { RTL: true };
   XLSX.utils.book_append_sheet(wb, ws, 'פיקניק וולפסון');
   XLSX.writeFile(wb, 'picnic-wolfson.xlsx');
   showToast('קובץ אקסל הורד! 📊');
