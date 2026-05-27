@@ -173,7 +173,7 @@
     font-weight: 700; margin-top: 1rem;
   }
 </style>
-</head>
+<script src="index_files/xlsx.full.min.js"></script></head>
 <body>
 
 <div class="loading-overlay" id="loadingOverlay" style="display: none;">
@@ -191,10 +191,10 @@
   </div>
   <div style="color:rgba(255,255,255,0.9);font-size:1.1rem;font-weight:700;font-family:Arial;margin-top:0.8rem">⏳ הספירה לאחור:</div>
   <div id="countdown" class="countdown">
-    <div class="countdown-item"><div class="countdown-num">4</div><div class="countdown-label">ימים</div></div>
-    <div class="countdown-item"><div class="countdown-num">03</div><div class="countdown-label">שעות</div></div>
-    <div class="countdown-item"><div class="countdown-num">10</div><div class="countdown-label">דקות</div></div>
-    <div class="countdown-item"><div class="countdown-num">41</div><div class="countdown-label">שניות</div></div>
+    <div class="countdown-item"><div class="countdown-num">2</div><div class="countdown-label">ימים</div></div>
+    <div class="countdown-item"><div class="countdown-num">11</div><div class="countdown-label">שעות</div></div>
+    <div class="countdown-item"><div class="countdown-num">48</div><div class="countdown-label">דקות</div></div>
+    <div class="countdown-item"><div class="countdown-num">42</div><div class="countdown-label">שניות</div></div>
   </div>
 </header>
 
@@ -234,75 +234,75 @@
       <div class="item-card " id="item-card-tables">
     <div class="item-top">
       <span class="item-name">שולחנות</span>
-      <span class="slots-badge">2/3</span>
+      <span class="slots-badge">3/4</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('tables')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">ניר זמר</span><span class="volunteer-tag ">הראל</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:67%"></div></div>
+    <div class="volunteers"><span class="volunteer-tag ">ניר זמר</span><span class="volunteer-tag ">הראל</span><span class="volunteer-tag ">אסף גינזבורג</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
   </div>
     </div><div class="category">
       <div class="category-title">💧 שתייה</div>
-      <div class="item-card " id="item-card-water">
+      <div class="item-card full" id="item-card-water">
     <div class="item-top">
       <span class="item-name">שישיות מים מינרליים</span>
-      <span class="slots-badge">3/4</span>
+      <span class="slots-badge">4/4</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('water')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">רונן</span><span class="volunteer-tag ">קרן</span><span class="volunteer-tag ">טל</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+    <div class="volunteers"><span class="volunteer-tag ">רונן</span><span class="volunteer-tag ">קרן</span><span class="volunteer-tag ">טל ויזל</span><span class="volunteer-tag ">שירה</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
       <div class="category-title">🍽️ חד פעמי</div>
-      <div class="item-card " id="item-card-cups">
+      <div class="item-card full" id="item-card-cups">
     <div class="item-top">
       <span class="item-name">כוסות (3 שרוולים כל אחד)</span>
-      <span class="slots-badge">3/4</span>
+      <span class="slots-badge">4/4</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('cups')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">מירב זמיר</span><span class="volunteer-tag ">רונה</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
-  </div><div class="item-card " id="item-card-plates">
+    <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">מירב זמיר</span><span class="volunteer-tag ">רונה</span><span class="volunteer-tag ">רחלי</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+  </div><div class="item-card full" id="item-card-plates">
     <div class="item-top">
       <span class="item-name">צלחות גדולות (חבילה)</span>
-      <span class="slots-badge">3/4</span>
+      <span class="slots-badge">4/4</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('plates')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">אמיר</span><span class="volunteer-tag ">אמיר בריף</span><span class="volunteer-tag ">איתן</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
-  </div><div class="item-card " id="item-card-forks">
+    <div class="volunteers"><span class="volunteer-tag ">אמיר</span><span class="volunteer-tag ">אמיר בריף</span><span class="volunteer-tag ">איתן</span><span class="volunteer-tag ">רותם אנגלמאיר</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+  </div><div class="item-card full" id="item-card-forks">
     <div class="item-top">
       <span class="item-name">מזלגות (שקית)</span>
-      <span class="slots-badge">3/4</span>
+      <span class="slots-badge">4/4</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('forks')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">אמיר בריף</span><span class="volunteer-tag ">נאוה</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+    <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">אמיר בריף</span><span class="volunteer-tag ">נאוה</span><span class="volunteer-tag ">נטלי</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
       <div class="category-title">🌿 נוחות</div>
-      <div class="item-card " id="item-card-blankets">
+      <div class="item-card full" id="item-card-blankets">
     <div class="item-top">
       <span class="item-name">מפות</span>
-      <span class="slots-badge">2/3</span>
+      <span class="slots-badge">3/3</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('blankets')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">ורד</span><span class="volunteer-tag ">דקל נעים</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:67%"></div></div>
-  </div><div class="item-card " id="item-card-papertowels">
+    <div class="volunteers"><span class="volunteer-tag ">ורד</span><span class="volunteer-tag ">דקל נעים</span><span class="volunteer-tag ">דלית</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+  </div><div class="item-card full" id="item-card-papertowels">
     <div class="item-top">
       <span class="item-name">מגבות נייר (2 בודדות)</span>
-      <span class="slots-badge">2/3</span>
+      <span class="slots-badge">3/3</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('papertowels')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">אלכס ס.</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:67%"></div></div>
+    <div class="volunteers"><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">אלכס ס.</span><span class="volunteer-tag ">נאוה</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div><div class="item-card full" id="item-card-wipes">
     <div class="item-top">
       <span class="item-name">מגבונים לחים (2 חבילות)</span>
-      <span class="slots-badge">2/2</span>
+      <span class="slots-badge">3/3</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('wipes')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">אלכס ס.</span><span class="volunteer-tag ">מעיין אביבית</span></div>
+    <div class="volunteers"><span class="volunteer-tag ">אלכס ס.</span><span class="volunteer-tag ">מעיין אביבית</span><span class="volunteer-tag ">איתי בן שושן</span></div>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
@@ -318,25 +318,25 @@
   </div>
     </div><div class="category">
       <div class="category-title">♻️ סביבה</div>
-      <div class="item-card " id="item-card-trash">
+      <div class="item-card full" id="item-card-trash">
     <div class="item-top">
       <span class="item-name">שקיות אשפה גדולות</span>
-      <span class="slots-badge">4/5</span>
+      <span class="slots-badge">5/5</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('trash')">✏️ עריכה</button></span>
     </div>
-    <div class="volunteers"><span class="volunteer-tag ">נאוה</span><span class="volunteer-tag ">מעיין אביבית</span><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">דקל נעים</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+    <div class="volunteers"><span class="volunteer-tag ">נאוה</span><span class="volunteer-tag ">מעיין אביבית</span><span class="volunteer-tag ">חן</span><span class="volunteer-tag ">דקל נעים</span><span class="volunteer-tag ">אייל</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div><div class="category">
       <div class="category-title">🎵 בידור</div>
-      <div class="item-card " id="item-card-music">
+      <div class="item-card full" id="item-card-music">
     <div class="item-top">
       <span class="item-name">רמקול / בידורית</span>
-      <span class="slots-badge">0/1</span>
+      <span class="slots-badge">1/1</span>
       <span style="display:flex;gap:0.4rem"><button class="admin-edit-btn" onclick="openAdminEdit('music')">✏️ עריכה</button></span>
     </div>
-    
-    <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="volunteers"><span class="volunteer-tag ">שירה</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
     </div></div>
 
@@ -349,7 +349,7 @@
       <button class="admin-tool-btn secondary" onclick="toggleColSettings()">📊 עמודות דוח</button>
       <button class="admin-tool-btn secondary" onclick="exportToExcel()">⬇️ ייצוא לאקסל</button>
     </div>
-    <div id="colSettings" style="display:none;margin-bottom:0.8rem">
+    <div id="colSettings" style="display: block; margin-bottom: 0.8rem;">
       <div style="font-size:0.82rem;font-weight:700;color:var(--green-deep);margin-bottom:0.4rem">בחר עמודות להצגה בדוח:</div>
       <div class="col-toggle-row" id="colToggles"><label class="col-toggle active">
       <input type="checkbox" checked="checked" onchange="toggleCol('volunteers', this.checked)">
@@ -363,8 +363,8 @@
     </label><label class="col-toggle active">
       <input type="checkbox" checked="checked" onchange="toggleCol('status', this.checked)">
       מצב
-    </label><label class="col-toggle ">
-      <input type="checkbox" onchange="toggleCol('notes', this.checked)">
+    </label><label class="col-toggle active">
+      <input type="checkbox" checked="checked" onchange="toggleCol('notes', this.checked)">
       הערות
     </label></div>
     </div>
@@ -381,9 +381,9 @@
     </div>
     <div id="freeItemsList"><div class="free-item" id="free-item-1779661692706">
       <span class="free-item-text">אתר לניהול מתנדבים</span>
-      <span class="free-item-who">👤 טל</span>
+      <span class="free-item-who">👤 טל ויזל</span>
       
-        <button class="free-edit-btn" onclick="startEditFreeItem('1779661692706', 'אתר לניהול מתנדבים', 'טל', true)" title="עריכה">✏️</button>
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779661692706', 'אתר לניהול מתנדבים', 'טל ויזל', true)" title="עריכה">✏️</button>
         <button class="free-delete-btn" onclick="deleteFreeItem('1779661692706')">✕</button>
       
     </div><div class="free-item" id="free-item-1779686457716">
@@ -449,6 +449,55 @@
         <button class="free-edit-btn" onclick="startEditFreeItem('1779690567381', 'יין + שמפנייה - שלי', 'שלי', true)" title="עריכה">✏️</button>
         <button class="free-delete-btn" onclick="deleteFreeItem('1779690567381')">✕</button>
       
+    </div><div class="free-item" id="free-item-1779799161715">
+      <span class="free-item-text">תפוחים , שתיה קלה , בירות</span>
+      <span class="free-item-who">👤 אמיר בריף</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779799161715', 'תפוחים , שתיה קלה , בירות', 'אמיר בריף', true)" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779799161715')">✕</button>
+      
+    </div><div class="free-item" id="free-item-1779799514339">
+      <span class="free-item-text">יין אדום ומחצלת</span>
+      <span class="free-item-who">👤 טלי</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779799514339', 'יין אדום ומחצלת', 'טלי', true)" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779799514339')">✕</button>
+      
+    </div><div class="free-item" id="free-item-1779802324556">
+      <span class="free-item-text">שמיכה גדולה לישיבה</span>
+      <span class="free-item-who">👤 איתי בן שושן</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779802324556', 'שמיכה גדולה לישיבה', 'איתי בן שושן', true)" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779802324556')">✕</button>
+      
+    </div><div class="free-item" id="free-item-1779803162478">
+      <span class="free-item-text">זעיתים + מלפפונים חמוצים</span>
+      <span class="free-item-who">👤 רותם אנגלמאיר</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779803162478', 'זעיתים + מלפפונים חמוצים', 'רותם אנגלמאיר', true)" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779803162478')">✕</button>
+      
+    </div><div class="free-item" id="free-item-1779803216531">
+      <span class="free-item-text">צלחות גדולות חד"פ</span>
+      <span class="free-item-who">👤 רותם אנגלמאיר</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779803216531', 'צלחות גדולות חד" פ',="" 'רותם="" אנגלמאיר',="" true)"="" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779803216531')">✕</button>
+      
+    </div><div class="free-item" id="free-item-1779804199976">
+      <span class="free-item-text">שישית בירות קורונה</span>
+      <span class="free-item-who">👤 אסף גינזבורג</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779804199976', 'שישית בירות קורונה', 'אסף גינזבורג', true)" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779804199976')">✕</button>
+      
+    </div><div class="free-item" id="free-item-1779805476698">
+      <span class="free-item-text">קינוח</span>
+      <span class="free-item-who">👤 שירה</span>
+      
+        <button class="free-edit-btn" onclick="startEditFreeItem('1779805476698', 'קינוח', 'שירה', true)" title="עריכה">✏️</button>
+        <button class="free-delete-btn" onclick="deleteFreeItem('1779805476698')">✕</button>
+      
     </div></div>
   </div>
 
@@ -456,14 +505,14 @@
     <div class="category-title">📊 דוח סטטוס</div>
     <div style="overflow-x:auto">
       <table class="report-table">
-        <thead><tr><th>פריט</th><th>מתנדבים</th><th class="col-registered">נרשמו</th><th>צריך</th><th>מצב</th></tr></thead>
-        <tbody id="reportBody"><tr class="row-missing"><td>שולחנות</td><td>ניר זמר, הראל</td><td class="col-registered" style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>שישיות מים מינרליים</td><td>רונן, קרן, טל</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>כוסות (3 שרוולים כל אחד)</td><td>חן, מירב זמיר, רונה</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>צלחות גדולות (חבילה)</td><td>אמיר, אמיר בריף, איתן</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>מזלגות (שקית)</td><td>חן, אמיר בריף, נאוה</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>מפות</td><td>ורד, דקל נעים</td><td class="col-registered" style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>מגבות נייר (2 בודדות)</td><td>חן, אלכס ס.</td><td class="col-registered" style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-full"><td>מגבונים לחים (2 חבילות)</td><td>אלכס ס., מעיין אביבית</td><td class="col-registered" style="text-align:center">2</td><td style="text-align:center">2</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-full"><td>פותחן בקבוקים</td><td>אלכס ס., עידן, ורד</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td></tr><tr class="row-missing"><td>שקיות אשפה גדולות</td><td>נאוה, מעיין אביבית, חן, דקל נעים</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">5</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr class="row-missing"><td>רמקול / בידורית</td><td>—</td><td class="col-registered" style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td></tr><tr><td colspan="5" style="background:#fff8e1;font-weight:700;padding:0.6rem 0.7rem;border-top:2px solid var(--sand)">✨ הוספות חופשיות</td></tr><tr><td>אתר לניהול מתנדבים</td><td>טל</td><td colspan="3"></td></tr><tr><td>סלט ביצים ובלי תפוחי אדמה</td><td>איילת</td><td colspan="3"></td></tr><tr><td>בירות</td><td>יובל זהרהרי</td><td colspan="3"></td></tr><tr><td>סלט פירות</td><td>ניר זמר</td><td colspan="3"></td></tr><tr><td>פרכיות ובייגלה</td><td>ורד</td><td colspan="3"></td></tr><tr><td>לחם פרוס</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>טחינה</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>מחצלת 140×150</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>כוסות</td><td>לירון</td><td colspan="3"></td></tr><tr><td>יין + שמפנייה - שלי</td><td>שלי</td><td colspan="3"></td></tr></tbody>
+        <thead><tr><th>פריט</th><th>מתנדבים</th><th class="col-registered">נרשמו</th><th>צריך</th><th>מצב</th><th>הערות</th></tr></thead>
+        <tbody id="reportBody"><tr class="row-missing"><td>שולחנות</td><td>ניר זמר, הראל, אסף גינזבורג</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-missing">⚠️ חסרים</span></td><td></td></tr><tr class="row-full"><td>שישיות מים מינרליים</td><td>רונן, קרן, טל ויזל, שירה</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>כוסות (3 שרוולים כל אחד)</td><td>חן, מירב זמיר, רונה, רחלי</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>צלחות גדולות (חבילה)</td><td>אמיר, אמיר בריף, איתן, רותם אנגלמאיר</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מזלגות (שקית)</td><td>חן, אמיר בריף, נאוה, נטלי</td><td class="col-registered" style="text-align:center">4</td><td style="text-align:center">4</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מפות</td><td>ורד, דקל נעים, דלית</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מגבות נייר (2 בודדות)</td><td>חן, אלכס ס., נאוה</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>מגבונים לחים (2 חבילות)</td><td>אלכס ס., מעיין אביבית, איתי בן שושן</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>פותחן בקבוקים</td><td>אלכס ס., עידן, ורד</td><td class="col-registered" style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>שקיות אשפה גדולות</td><td>נאוה, מעיין אביבית, חן, דקל נעים, אייל</td><td class="col-registered" style="text-align:center">5</td><td style="text-align:center">5</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr class="row-full"><td>רמקול / בידורית</td><td>שירה</td><td class="col-registered" style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center"><span class="badge-full">✅ מלא</span></td><td></td></tr><tr><td colspan="5" style="background:#fff8e1;font-weight:700;padding:0.6rem 0.7rem;border-top:2px solid var(--sand)">✨ הוספות חופשיות</td></tr><tr><td>אתר לניהול מתנדבים</td><td>טל ויזל</td><td colspan="3"></td></tr><tr><td>סלט ביצים ובלי תפוחי אדמה</td><td>איילת</td><td colspan="3"></td></tr><tr><td>בירות</td><td>יובל זהרהרי</td><td colspan="3"></td></tr><tr><td>סלט פירות</td><td>ניר זמר</td><td colspan="3"></td></tr><tr><td>פרכיות ובייגלה</td><td>ורד</td><td colspan="3"></td></tr><tr><td>לחם פרוס</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>טחינה</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>מחצלת 140×150</td><td>מעיין אביבית</td><td colspan="3"></td></tr><tr><td>כוסות</td><td>לירון</td><td colspan="3"></td></tr><tr><td>יין + שמפנייה - שלי</td><td>שלי</td><td colspan="3"></td></tr><tr><td>תפוחים , שתיה קלה , בירות</td><td>אמיר בריף</td><td colspan="3"></td></tr><tr><td>יין אדום ומחצלת</td><td>טלי</td><td colspan="3"></td></tr><tr><td>שמיכה גדולה לישיבה</td><td>איתי בן שושן</td><td colspan="3"></td></tr><tr><td>זעיתים + מלפפונים חמוצים</td><td>רותם אנגלמאיר</td><td colspan="3"></td></tr><tr><td>צלחות גדולות חד"פ</td><td>רותם אנגלמאיר</td><td colspan="3"></td></tr><tr><td>שישית בירות קורונה</td><td>אסף גינזבורג</td><td colspan="3"></td></tr><tr><td>קינוח</td><td>שירה</td><td colspan="3"></td></tr></tbody>
       </table>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast">עודכן בהצלחה ✅</div>
+<div class="toast" id="toast">קובץ אקסל הורד! 📊</div>
 
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal">
@@ -477,20 +526,8 @@
 <div class="modal-overlay" id="adminModalOverlay" onclick="closeAdminModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeAdminModal()">✕</button>
-    <h2 id="adminModalTitle">✏️ עריכת שמות – מגבות נייר (2 בודדות)</h2>
-    <div id="adminModalBody"><div class="admin-name-row" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:2px solid var(--sand)">
-    <span class="admin-name-label" style="font-weight:700;color:var(--green-deep)">כמות נדרשת:</span>
-    <input class="admin-name-input" type="number" min="1" max="20" id="admin-slots-papertowels" value="3" style="width:80px;flex:none;text-align:center" oninput="refreshAdminNameFields('papertowels')">
-  </div><div id="admin-names-papertowels"><div class="admin-name-row">
-      <span class="admin-name-label">מתנדב 1:</span>
-      <input class="admin-name-input" id="admin-name-papertowels-0" value="חן" placeholder="ריק – אין מתנדב">
-    </div><div class="admin-name-row">
-      <span class="admin-name-label">מתנדב 2:</span>
-      <input class="admin-name-input" id="admin-name-papertowels-1" value="אלכס ס." placeholder="ריק – אין מתנדב">
-    </div><div class="admin-name-row">
-      <span class="admin-name-label">מתנדב 3:</span>
-      <input class="admin-name-input" id="admin-name-papertowels-2" placeholder="ריק – אין מתנדב">
-    </div></div></div>
+    <h2 id="adminModalTitle">✏️ עריכת שמות</h2>
+    <div id="adminModalBody"></div>
     <button class="copy-btn" style="background:var(--green-mid);margin-top:1rem" onclick="saveAdminEdit()">💾 שמור שינויים</button>
   </div>
 </div>
@@ -1132,7 +1169,11 @@ window.closeAdminModal = function(e) {
 
 window.exportToExcel = function() {
   if (typeof XLSX === 'undefined') {
-    showToast('הספריה עדיין נטענת, נסו שוב עוד שנייה');
+    showToast('טוען ספריה...');
+    const s = document.createElement('script');
+    s.src = 'https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js';
+    s.onload = () => { showToast('נטען! לחצו שוב'); };
+    document.head.appendChild(s);
     return;
   }
   const allItemsE = getAllItems();
@@ -1200,7 +1241,6 @@ updateAdminPanel();
 renderItems();
 renderFreeItems();
 </script>
-<script src="index_files/xlsx.full.min.js"></script>
 
 
 </body></html>
