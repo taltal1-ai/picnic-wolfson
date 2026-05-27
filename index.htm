@@ -192,8 +192,8 @@
   <div id="countdown" class="countdown">
     <div class="countdown-item"><div class="countdown-num">2</div><div class="countdown-label">ימים</div></div>
     <div class="countdown-item"><div class="countdown-num">11</div><div class="countdown-label">שעות</div></div>
-    <div class="countdown-item"><div class="countdown-num">16</div><div class="countdown-label">דקות</div></div>
-    <div class="countdown-item"><div class="countdown-num">43</div><div class="countdown-label">שניות</div></div>
+    <div class="countdown-item"><div class="countdown-num">06</div><div class="countdown-label">דקות</div></div>
+    <div class="countdown-item"><div class="countdown-num">27</div><div class="countdown-label">שניות</div></div>
   </div>
 </header>
 
@@ -764,7 +764,7 @@ function renderItem(item) {
   const tagsHtml = volunteers.length > 0
     ? `<div class="volunteers">${volunteers.map(n => `<span class="volunteer-tag ${n === currentUser ? 'is-me' : ''}">${n}</span>`).join('')}</div>` : '';
   const noteText = itemNotes[item.id] || '';
-  const noteHtml = noteText ? `<div style="font-size:0.78rem;color:var(--brown);margin-top:0.4rem">📝 ${noteText}</div>` : '';
+  const noteHtml = (noteText && currentUser === 'מנהל') ? `<div style="font-size:0.78rem;color:var(--brown);margin-top:0.4rem">📝 ${noteText}</div>` : '';
   const isAdmin = currentUser === 'מנהל';
   let btnHtml = isAdmin
     ? ''
@@ -801,7 +801,7 @@ function renderFreeItems() {
     const isMe = item.who === currentUser;
     const withinMinute = isMe && item.ts && item.ts > 0 && (Date.now() - item.ts) < 60000;
     const canEdit = withinMinute || isAdminUser;
-    const noteDisplay = item.note ? `<div style="font-size:0.75rem;color:var(--brown);margin-top:0.2rem;width:100%">📝 ${item.note}</div>` : '';
+    const noteDisplay = (item.note && currentUser === 'מנהל') ? `<div style="font-size:0.75rem;color:var(--brown);margin-top:0.2rem;width:100%">📝 ${item.note}</div>` : '';
     return `<div class="free-item" id="free-item-${item.id}" style="flex-wrap:wrap">
       <span class="free-item-text">${item.text}</span>
       <span class="free-item-who">👤 ${item.who}</span>
@@ -1204,7 +1204,7 @@ window.exportToExcel = function() {
     [],
     headers,
     ...rows,
-    ...(freeRows.length ? [[''], ['✨ הוספות חופשיות', 'מי מביא'], ...freeRows.map(r => [r[0], r[2]])] : []),
+    ...(freeRows.length ? [[''], ['✨ הוספות חופשיות', 'מי מביא', 'הערה'], ...freeRows.map(r => [r[0], r[2], r[6] || ''])] : []),
     ...notesRow
   ];
 
